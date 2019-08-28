@@ -1,5 +1,5 @@
 
-exports.up = function(knex) {
+exports.up = function(knex, Promise) {
 	return knex.schema.createTable('cars', tbl => {
 		tbl.increments()
 		tbl.text('make')
@@ -11,11 +11,11 @@ exports.up = function(knex) {
 		tbl.text('mileage')
 			.notNullable()
 		tbl.text('transmission')
-		tbl.text('title-status')
+		tbl.text('title')
 	})
   
 };
 
-exports.down = function(knex) {
+exports.down = function(knex, Promise) {
   return knex.schema.dropTableIfExists('cars')
 };
